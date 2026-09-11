@@ -1,0 +1,63 @@
+# ============ Виртуальное окружение ============
+.venv/
+venv/
+env/
+ENV/
+
+# ============ Python ============
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ============ Тесты и кэш ============
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ============ Streamlit secrets ============
+.streamlit/secrets.toml
+
+# ============ Локальная база данных ============
+database/jobs.db
+database/*.db
+database/*.db-journal
+database/*.sqlite
+database/*.sqlite3
+
+# ============ IDE и редакторы ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ============ Операционные системы ============
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ============ Логи и временные файлы ============
+*.log
+*.tmp
+*.bak
+tmp/
+temp/
+
+# ============ Переменные окружения ============
+.env
+.env.local
+.env.*.local
+
+# ============ Jupyter (если используешь) ============
+.ipynb_checkpoints/
