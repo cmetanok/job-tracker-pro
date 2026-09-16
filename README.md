@@ -2,7 +2,7 @@
 
 Трекер поиска работы с системой анализа прогресса и двумя режимами отображения: публичным (для портфолио) и приватным (для личной работы).
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://[твой-субдомен].streamlit.app)
+https://job-tracker-pro-kct92fmxvvk9iyazspdqcn.streamlit.app/
 
 ---
 
