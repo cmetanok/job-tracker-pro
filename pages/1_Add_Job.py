@@ -1,18 +1,23 @@
 import streamlit as st
 from datetime import date
-from utils.style import apply_global_style
-apply_global_style()
 
 from utils.db_operations import init_db, add_job, STATUSES
-from utils.privacy import toggle_mode
+from utils.privacy import toggle_mode, is_full_access
 
-st.set_page_config(page_title="Добавить вакансию")
+st.set_page_config(page_title="Добавить вакансию", layout="wide")
 init_db()
 
 with st.sidebar:
     toggle_mode()
 
 st.title("Добавить вакансию")
+
+if not is_full_access():
+    st.info(
+        "Добавление вакансий доступно только в полном доступе. "
+        "Переключи режим в боковой панели и введи пароль."
+    )
+    st.stop()
 
 with st.form("add_job"):
     company = st.text_input("Компания *")
@@ -31,7 +36,7 @@ with st.form("add_job"):
     is_public = st.checkbox(
         "Показывать публично",
         value=False,
-        help="Если включено, то запись видна в публичном режиме (с маскировкой компании и ссылки).",
+        help="Если включено — запись видна в публичном режиме.",
     )
 
     submitted = st.form_submit_button("Сохранить")
@@ -51,7 +56,7 @@ if submitted:
     else:
         add_job(company, position, url, status, applied_date,
                 rejection_reason, lessons, notes, is_public=is_public)
-        st.success("Вакансия добавлена")
+        st.success("Вакансия добавлена.")
         if is_public:
             st.caption("Запись будет видна в публичном режиме.")
         else:
